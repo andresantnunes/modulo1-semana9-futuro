@@ -18,14 +18,13 @@ public class EmpresaController {
 
     private final EmpresaService empresaService;
 
-
     @GetMapping //mapeia o método GET do REST, esse retorna dados
     public List<EmpresaEntity> retornarEmpresas(){
         return empresaService.listarEmpresas();
     }
 
     @PostMapping //mapeia o método POST do REST, esse adiciona dados
-    public List<EmpresaEntity> retornarEmpresas(EmpresaEntity empresaEntity){
+    public EmpresaEntity retornarEmpresas(EmpresaEntity empresaEntity){
         return empresaService.salvarEmpresa(empresaEntity);
     }
 }
