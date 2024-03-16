@@ -18,16 +18,29 @@ public class EmpresaController {
     }
 
     @GetMapping //mapeia o método GET do REST, esse retorna dados
-    public List<EmpresaEntity> retornarEmpresas() {
+    public List<EmpresaEntity> salvaEmpresas() {
         return empresaService.listarEmpresas();
     }
 
     @PostMapping //mapeia o método POST do REST, esse adiciona dados
-    public EmpresaEntity retornarEmpresas(
+    public EmpresaEntity salvaEmpresas(
             @RequestBody EmpresaRequest empresaEntity //indica que o EmpresaEntity virá no Body da requisição
     ) {
         return empresaService.salvarEmpresa(
                 new EmpresaEntity(
+                        empresaEntity.getNome(),
+                        empresaEntity.getCnpj(),
+                        empresaEntity.getAnoCriacao()
+                ));
+    }
+
+    @PutMapping
+    public EmpresaEntity atualizaEmpresa(
+            @RequestBody EmpresaRequest empresaEntity
+    ) {
+        return empresaService.atualizaEmpresa(
+                new EmpresaEntity(
+                        empresaEntity.getId(),
                         empresaEntity.getNome(),
                         empresaEntity.getCnpj(),
                         empresaEntity.getAnoCriacao()

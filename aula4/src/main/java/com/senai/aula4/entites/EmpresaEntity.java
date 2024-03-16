@@ -28,4 +28,11 @@ public class EmpresaEntity {
         this.cnpj = cnpj;
         this.anoCriacao = anoCriacao;
     }
+
+    public EmpresaEntity(Long id, String nome, String cnpj, Long anoCriacao) {
+        this.id = id;
+        this.nome = nome;
+        this.cnpj = cnpj;
+        this.anoCriacao = anoCriacao;
+    }
 }
